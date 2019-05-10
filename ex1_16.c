@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <limits.h>
 #define MAXLINE 1000  //max line size
 #define IN 1          // your in a line, start has real data
 #define OUT 0         //your not in a line, start has none

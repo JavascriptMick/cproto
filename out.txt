@@ -1,0 +1,6 @@
+[26] this is a normal line
+[35] 3 trailing whitespace chars
+[20] blank line next
+[24] blank line previous
+[52] this is another but slightly longer normal line
+[30] final trailing blank below
