@@ -15,3 +15,6 @@
 #1.9 Character Arrays
 - needing to specify array size is a drag, have been taking this for granted
 - declaring index variables (int i) outside of a for means you can terminate the for with a condition and use the value of i without a break statement.  Hadn't thought of this.
+
+#1.10 - External Variables and Scope
+- "No Globals!"... the whole include/omit the extern keyword thing is a recipe for disaster, just invites problems.

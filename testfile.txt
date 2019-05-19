@@ -1,5 +1,8 @@
 [26] this is a normal line
 [35] 3 trailing whitespace chars   
+[39] tab after this	and this	tabbefore
+[46] four spaces after this    and before this
+[47] six spaces after this      and before this
 [20] blank line next
 
 [24] blank line previous
