@@ -1,3 +1,4 @@
 *.out
 .vscode/
 scratch.c
+out.txt

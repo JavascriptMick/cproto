@@ -18,3 +18,15 @@
 
 #1.10 - External Variables and Scope
 - "No Globals!"... the whole include/omit the extern keyword thing is a recipe for disaster, just invites problems.
+
+#chapter1 exercises
+- really missing booleans.  I did this
+```
+#define TRUE 1
+#define FALSE 0
+```
+But then I still gotta do this
+```
+if(i<n && (isWhitespace(c)==FALSE || leading==FALSE))
+```
+because my fake boolean is not implicitly boolean
