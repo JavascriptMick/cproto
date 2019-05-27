@@ -42,14 +42,8 @@ int main()
   printf("i(+1)=%d\n", i);
 
   printf("\nfloat %f -> %f\n", FLT_MIN, FLT_MAX);
-  // printf("FLT_MAX"); printFloatyBits(FLT_MAX);
-  
   printf("\ndouble %f -> %f\n", DBL_MIN, DBL_MAX);
-  // printf("FLT_MAX"); printFloatyBits(DBL_MAX);
-
   printf("\nlong double %Lf -> %Lf\n", LDBL_MIN, LDBL_MAX);
-  // printf("FLT_MAX"); printFloatyBits(DBL_MAX);
-
 }
 
 void printBits(unsigned long i){
