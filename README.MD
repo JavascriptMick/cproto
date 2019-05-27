@@ -12,3 +12,8 @@ cc ex*_*.c
 cat testfile.txt | ./a.out > out.txt
 cat bad3.c | ./a.out
 ```
+
+## dumping machine code
+```
+otool -tv ./a.out
+```

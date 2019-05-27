@@ -31,7 +31,7 @@ int main()
   printf("ULONG_MAX"); printBits(ULONG_MAX);
 
   // boundary behaviour
-  printf("\nBoundary Behaviour\n");
+  printf("\nInteger Boundary Behaviour\n");
   int i; i = INT_MIN;
   printf("i(INT_MIN)=%d\n", i);
   i = i - 1;
@@ -40,6 +40,15 @@ int main()
   printf("i(INT_MAX)=%d\n", i);
   i = i + 1;
   printf("i(+1)=%d\n", i);
+
+  printf("\nfloat %f -> %f\n", FLT_MIN, FLT_MAX);
+  // printf("FLT_MAX"); printFloatyBits(FLT_MAX);
+  
+  printf("\ndouble %f -> %f\n", DBL_MIN, DBL_MAX);
+  // printf("FLT_MAX"); printFloatyBits(DBL_MAX);
+
+  printf("\nlong double %Lf -> %Lf\n", LDBL_MIN, LDBL_MAX);
+  // printf("FLT_MAX"); printFloatyBits(DBL_MAX);
 
 }
 
@@ -62,6 +71,5 @@ void printBits(unsigned long i){
       }
     }
     printf(" loop tapped out at %d bits with a value of %ld\n", b, a);
-
   }
 }
