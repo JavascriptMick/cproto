@@ -40,7 +40,7 @@ because my fake boolean is not implicitly boolean
 My stack implementation is ok but should be wrapped up in a class, using the globals + extern thing is clumsy and not very DRY.
 
 ### Declare + Initialise
-In one statement, just so much cleaner and more cohesive.
+~~In one statement, just so much cleaner and more cohesive.~~
 
 # Chapter 2
 ## 2.2 Data Types and Size
@@ -53,6 +53,9 @@ it's not assignable, I suppose I should delve into string.h but it will be repla
 
 Don't really get enum constants, declare them in a named enum but they just become global names?! pretty stoopid.
 
+## 2.4 Declarations
+omg, you *can* declare and init on one line, including strings!  this is an ommission from Chapter1 imho.
+
 ## 2.7 Type Conversions
 Here lie dragons I think.  This should fail...
 ```
@@ -61,4 +64,3 @@ Here lie dragons I think.  This should fail...
   c = i;
 ```
 but it doesn't, it just silently lops off the higher order bits leaving you with 0! other conversions flip sign! #nosafetynet
-

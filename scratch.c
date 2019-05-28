@@ -19,8 +19,13 @@ int main()
     printf("Its true, enums work\n");
   else
     printf("enums are rubbish\n");
-  
-  intToChar();  
+    
+  // you *can* declare and init on one line! why not tell me earlier
+  char yourkiddingme[] = "yes its true!";
+  printf("%s\n", yourkiddingme);
+  int meaning = 42;
+
+  intToChar();
 }
 
 void printString(char aString[]){
