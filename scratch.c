@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <limits.h>
+#include <stdlib.h>
 
 enum boolean { YES, NO };
 // enum evilbool { NO, YES, MAYBE}; // error: redefinition of enumerator 'NO'
@@ -8,6 +9,7 @@ enum boolean { YES, NO };
 
 void printString(char aString[]);
 void intToChar();
+void use_strtol();
 
 int main()
 {
@@ -26,6 +28,8 @@ int main()
   int meaning = 42;
 
   intToChar();
+
+  use_strtol();
 }
 
 void printString(char aString[]){
@@ -51,4 +55,10 @@ void intToChar(){
   printf("i=%d\n", i);
   printf("CHARMAX %d\n", CHAR_MAX);
 
+}
+
+void use_strtol(){
+  char *ptr;
+  long lfromhex = strtol("oxaf", &ptr, 10);
+  printf("oxaf -> %ld\n", lfromhex);
 }
