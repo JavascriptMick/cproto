@@ -52,3 +52,13 @@ Strings littorals *are* a thing, but you can't assign to a char[] because
 it's not assignable, I suppose I should delve into string.h but it will be replaced in C++ with the String class so I might just skip it.
 
 Don't really get enum constants, declare them in a named enum but they just become global names?! pretty stoopid.
+
+## 2.7 Type Conversions
+Here lie dragons I think.  This should fail...
+```
+  int i = 256;
+  char c = 42;
+  c = i;
+```
+but it doesn't, it just silently lops off the higher order bits leaving you with 0! other conversions flip sign! #nosafetynet
+
