@@ -2,7 +2,10 @@
 enum boolean { FALSE, TRUE};
 
 void squeeze(char s[], char c[]);
-
+/*
+Write an alternate version of squeeze (s 1,s2) that deletes
+each character in s 1 that matches any character in the string s2
+*/
 int main()
 {
     char s[] = "zThe quick jjbrown foxzzz";
