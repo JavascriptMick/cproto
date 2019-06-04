@@ -8,35 +8,43 @@ enum boolean { YES, NO };
 
 
 void printString(char aString[]);
+void playWithBool();
+void declareAndInit();
 void intToChar();
 void use_strtol();
 void use_bitwise();
+void playWithIntDivision();
 
 int main()
 {
   // putchar('0' + 1);
   printString("1234567890");
+  playWithBool();
+  declareAndInit();
+  intToChar();
+  use_strtol();
+  use_bitwise();
+  playWithIntDivision();
+}
+
+void printString(char aString[]){
+  printf("%s\n", aString);
+}
+
+void playWithBool(){
   int isGood;
   isGood = YES;
   if(isGood==YES)
     printf("Its true, enums work\n");
   else
     printf("enums are rubbish\n");
-    
+}
+
+void declareAndInit(){
   // you *can* declare and init on one line! why not tell me earlier
   char yourkiddingme[] = "yes its true!";
   printf("%s\n", yourkiddingme);
   int meaning = 42;
-
-  intToChar();
-
-  use_strtol();
-
-  use_bitwise();
-}
-
-void printString(char aString[]){
-  printf("%s\n", aString);
 }
 
 void intToChar(){
@@ -87,6 +95,11 @@ void use_bitwise()
   // and use & ~MASK to turn the bits in the mask OFF in the lhs
   int b0010000 = b0010010 & ~07; //=020 octal 16 dec.
   printf("0010010 ^ ~07  = 0010000 %d [16]\n", b0010000);
+}
 
-
+void playWithIntDivision(){
+  printf("1/2 = %d\n", 1/2);
+  printf("2/3 = %d\n", 2/3);
+  printf("9/10 = %d\n", 9/10);  // 0.. no rounding up here
+  printf("18 %% 10 = %d\n", 18 % 10);
 }
