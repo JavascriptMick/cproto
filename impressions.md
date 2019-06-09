@@ -64,3 +64,6 @@ Here lie dragons I think.  This should fail...
   c = i;
 ```
 but it doesn't, it just silently lops off the higher order bits leaving you with 0! other conversions flip sign! #nosafetynet
+
+# Chapter 3
+No real surprises here, this is all very familiar.  the comma ',' operator is cool though and can make things elegant and terse.
