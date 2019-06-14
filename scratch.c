@@ -14,6 +14,7 @@ void intToChar();
 void use_strtol();
 void use_bitwise();
 void playWithIntDivision();
+char pchar(int i);
 
 int main()
 {
@@ -102,4 +103,14 @@ void playWithIntDivision(){
   printf("2/3 = %d\n", 2/3);
   printf("9/10 = %d\n", 9/10);  // 0.. no rounding up here
   printf("18 %% 10 = %d\n", 18 % 10);
+}
+
+char pchar(int i){
+  if(i=='\n')
+    return 'n';
+  else if(i==' ')
+    return '_';
+  else if(i=='\t')
+    return 't';
+  else return i;
 }
