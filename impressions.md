@@ -67,3 +67,12 @@ but it doesn't, it just silently lops off the higher order bits leaving you with
 
 # Chapter 3
 No real surprises here, this is all very familiar.  the comma ',' operator is cool though and can make things elegant and terse.
+
+# Chapter 4
+I had my first segmentation fault error adding '-' support to the getop function (ex4-3).  This was pretty jarring, no line number, no clues, just drops out.  Super hard to track down.  In the end I just had to run over the logic in my brain untill I found the mistake (didn't initialise an array indexer in one branch).  I tried briefly using valgrind but couldn't get it to compile for my mac.
+
+Lots of cool stuff in this chapter about the mechanics of the language, header files, macros, #define semantics, conditional inclusion etc. TBH I think these things are what makes reading a C program intimidating to the beginner (and pointers but thats next)
+
+The file as a unit of scope is a bit odd, feels like this springs out of the practicalities of compilation rather than a considered language feature.  It also seems to me that it must bring about a bunch of stylistic rules about what should go in a file, whereas a Class or a namespace is more explicitly a language feature.
+
+The *static* keyword for external variables feels wrong.  It works more like *private*.
