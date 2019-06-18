@@ -12,12 +12,15 @@ gcc -c ex5_1.c && gcc ex5_1.o util.o
 
 int main()
 {
-    int n, array[SIZE], getint(int *);
-    for (n = 0; n < SIZE && getint(&array[n]) != EOF; n++)
+    int n, i, array[SIZE], getint(int *), r;
+    for (n = 0; n < SIZE; n++)
+        array[n] = 0;
+
+    for (n = 0; n < SIZE && (r = getint(&array[n])) != EOF && r != 0; n++)
         ;
     
-    for (n = 0; n < SIZE; n++)
-        printf("%d -> %d\n", n, array[n]);
+    for (i = 0; i < n; i++)
+        printf("%d -> %d\n", i, array[i]);
 }
 
 int getint(int *pn)
@@ -31,8 +34,13 @@ int getint(int *pn)
         return 0;
     }
     sign = (c == '-') ? -1 : 1;
-    if (c == '+' || c == '-')
+    if (c == '+' || c == '-'){
         c = getch();
+        if(!isdigit(c)){
+            ungetch(c);
+            return 0;
+        }
+    }
     for (*pn = 0; isdigit(c); c = getch())
         *pn = 10 * *pn + (c - '0');
     *pn *= sign;
