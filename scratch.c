@@ -15,6 +15,7 @@ void use_strtol();
 void use_bitwise();
 void playWithIntDivision();
 char pchar(int i);
+void playWithArrayPointers();
 
 int main()
 {
@@ -26,6 +27,7 @@ int main()
   use_strtol();
   use_bitwise();
   playWithIntDivision();
+  playWithArrayPointers();
 }
 
 void printString(char aString[]){
@@ -113,4 +115,21 @@ char pchar(int i){
   else if(i=='\t')
     return 't';
   else return i;
+}
+
+void playWithArrayPointers(){
+  char _[] = "9876543210";
+  char s[] = "abcdefg";
+  char *c = &s[3];
+  printf("s=%s (contents of s)\n", s);
+  printf("s=%p (the address of s)\n", s);
+  printf("*(s+4)=%c\n", *(s+4));
+  printf("*c=&s[3]=%c\n", *c);
+  printf("*(c-1)=%c\n", *(c-1));
+  
+  /* Illegal?? */
+  printf("*(c-5)=%c(%d)\n", *(c-5), *(c-5)); // no error here.. wierd
+  
+  /* Illegal */
+  // char *f = _ + s; //- invalid operands to binary expression ('char *' and 'char *')
 }
