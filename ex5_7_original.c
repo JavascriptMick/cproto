@@ -6,7 +6,7 @@
 
 char *lineptr[MAXLINES]; /* pointers to text lines */
 
-int readlines(char *lineptr[], int nlines, char lines[][]);
+int readlines(char *lineptr[], int nlines);
 void writelines(char *lineptr[], int nlines);
 
 void qsort(char *lineptr[], int left, int right);
@@ -16,14 +16,11 @@ gcc -c util.c (once)
 gcc -c ex5_7.c && gcc ex5_7.o util.o
 */
 
-#define MAXLEN 1000 /* max length of any input line*/
-
 /* sort input lines */
 int main()
 {
   int nlines; /* number of input lines read */
-  char lines[MAXLINES][MAXLEN];
-  if ((nlines = readlines(lineptr, MAXLINES, lines)) >= 0)
+  if ((nlines = readlines(lineptr, MAXLINES)) >= 0)
   {
     qsort(lineptr, 0, nlines - 1);
     writelines(lineptr, nlines);
@@ -36,15 +33,16 @@ int main()
   }
 }
 
+#define MAXLEN 1000 /* max length of any input line*/
 
 /* readlines: readinputline */
-int readlines(char *lineptr[], int maxlines, char lines[MAXLINES][MAXLEN])
+int readlines(char *lineptr[], int maxlines)
 {
   int len, nlines;
   char *p, line[MAXLEN];
   nlines = 0;
   while ((len = getnextline(line, MAXLEN)) > 0)
-    if (nlines >= maxlines || (p = &lines[nlines][0]) == NULL)
+    if (nlines >= maxlines || (p = alloc(len)) == NULL)
       return -1;
     else
     {
