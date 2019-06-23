@@ -3,10 +3,11 @@
 #include "util.h"
 
 #define MAXLINES 5000 /* max Ilines to be sorted */
+#define MAXLEN 1000 /* max length of any input line*/
 
 char *lineptr[MAXLINES]; /* pointers to text lines */
 
-int readlines(char *lineptr[], int nlines, char lines[][]);
+int readlines(char *lineptr[], int nlines, char lines[MAXLINES][MAXLEN]);
 void writelines(char *lineptr[], int nlines);
 
 void qsort(char *lineptr[], int left, int right);
@@ -16,7 +17,6 @@ gcc -c util.c (once)
 gcc -c ex5_7.c && gcc ex5_7.o util.o
 */
 
-#define MAXLEN 1000 /* max length of any input line*/
 
 /* sort input lines */
 int main()
