@@ -4,3 +4,4 @@
 out.txt
 out.c
 *.gch
+*.dSYM
