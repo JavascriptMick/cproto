@@ -76,3 +76,25 @@ Lots of cool stuff in this chapter about the mechanics of the language, header f
 The file as a unit of scope is a bit odd, feels like this springs out of the practicalities of compilation rather than a considered language feature.  It also seems to me that it must bring about a bunch of stylistic rules about what should go in a file, whereas a Class or a namespace is more explicitly a language feature.
 
 The *static* keyword for external variables feels wrong.  It works more like *private*.
+
+# Chapter 5 - Pointers and Arrays
+Basic pointer stuff is completely fine.  * and & all make sense.
+Using pointers to getaround the byvalue thing.. also fine, explicit and understandable.
+Same with pointers and arrays, you can see the implementation detail leaking through the abstraction but it's fine.
+Address arithmatic is a bit of a magic trick I think.
+alloc and free are explained well.
+char * refs to char arrays all good, re-pointable string refs.
+Pointer arrays, actually ok too, pretty neat, leave big blocks in place and sort the pointers, cool pattern.
+Multidimensional arrays are ok, even the [][] syntax, makes sence... but the pointer approach is a bit of a mind fuck.  this syntax:-
+```
+*(*(ddaytab + 1) + 2)
+```
+
+instead of :-
+```
+ddaytab[1][2]
+```
+is just horrible and I *immediately* want to wrap it in a helper function, so why would I do it at all??
+
+
+
