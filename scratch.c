@@ -16,6 +16,7 @@ void use_bitwise();
 void playWithIntDivision();
 char pchar(int i);
 void playWithArrayPointers();
+void playWithFunctionPointers();
 
 int main()
 {
@@ -28,6 +29,7 @@ int main()
   use_bitwise();
   playWithIntDivision();
   playWithArrayPointers();
+  playWithFunctionPointers();
 }
 
 void printString(char aString[]){
@@ -132,4 +134,34 @@ void playWithArrayPointers(){
   
   /* Illegal */
   // char *f = _ + s; //- invalid operands to binary expression ('char *' and 'char *')
+}
+
+int add(int i, int j){
+  return i + j;
+}
+int sub(int i, int j){
+  return i - j;
+}
+int pmult(int *i, int *j){
+  return *i * *j; //lol.. so many *
+}
+
+void playWithFunctionPointers(){
+  printf("Mathematical Magic\n");
+
+  // Pointer to a function that takes 2 ints and returns an int
+  int (*mathmagic)(int, int);
+  
+  printf("%d\n", add(4,5));
+  mathmagic = add;
+  printf("%d\n", mathmagic(4,5));
+  mathmagic = sub;
+  printf("%d\n", mathmagic(4,5));
+
+  /* Pointer to a function that takes 2 pointers to ints and returns an int */
+  int (*multmagic)(int *, int *);
+
+  multmagic = pmult;
+  int ii = 5, jj = 6;
+  printf("%d\n", multmagic(&ii,&jj));
 }
