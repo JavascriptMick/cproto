@@ -17,6 +17,7 @@ void playWithIntDivision();
 char pchar(int i);
 void playWithArrayPointers();
 void playWithFunctionPointers();
+void playWithComplexDeclarations();
 
 int main()
 {
@@ -30,6 +31,7 @@ int main()
   playWithIntDivision();
   playWithArrayPointers();
   playWithFunctionPointers();
+  playWithComplexDeclarations();
 }
 
 void printString(char aString[]){
@@ -164,4 +166,33 @@ void playWithFunctionPointers(){
   multmagic = pmult;
   int ii = 5, jj = 6;
   printf("%d\n", multmagic(&ii,&jj));
+}
+
+void playWithComplexDeclarations(){
+  printf("\nargv: pointer to pointer to char\n");
+  char **argv; /* argv: pointer to pointer to char */
+  char a = 'x';
+  char *_a = &a;
+  argv = &_a;
+  printf("**argv = %c\n", **argv);
+
+  printf("\ndaytab1: pointer to array[13] of int\n");
+  int (*daytab1)[13]; /* daytab1: pointer to array[13] of int */
+  int d[13] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13};
+  daytab1 = &d;
+  printf("(*daytab1)[4]=%d\n", (*daytab1)[4]);
+  printf("**daytab1=%d\n", **daytab1);
+  printf("++**daytab1=%d\n", ++**daytab1);
+
+  printf("\ndaytab2: array[13] of pointer to int\n");
+  int *daytab2[13]; /*daytab2: array[13] of pointer to int */
+  for(int i = 0; i < 13; i++){
+    daytab2[i] = &d[i];
+  }
+  printf("*daytab2[11]=%d\n", *daytab2[11]);
+
+  void *comp1();  /*comp1: function returning pointer to void */
+  void (*comp2)(); /*comp2: pointer to function returning void */
+  char (*(*x1())[])(); /* x1: function returning pointer to array[] of pointer to function returning char */
+  char (*(*x2[3])())[5]; /* x2: array[3] of pointer to function returning pointer to array[S] of char */
 }
