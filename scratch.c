@@ -168,6 +168,28 @@ void playWithFunctionPointers(){
   printf("%d\n", multmagic(&ii,&jj));
 }
 
+void *comp1() {
+  return NULL;
+}
+
+void _comp2(){
+  printf("in _comp2\n");
+}
+
+char returnschar(){
+  return 'x';
+}
+
+char alsoReturnschar(){
+  return 'y';
+}
+
+/* x: function returning pointer to array[] of pointer to function returning char */
+char (*(*x1())[])(){
+  char (*x[])() = {&returnschar, &alsoReturnschar};
+  return &x;
+}
+
 void playWithComplexDeclarations(){
   printf("\nargv: pointer to pointer to char\n");
   char **argv; /* argv: pointer to pointer to char */
@@ -191,8 +213,33 @@ void playWithComplexDeclarations(){
   }
   printf("*daytab2[11]=%d\n", *daytab2[11]);
 
-  void *comp1();  /*comp1: function returning pointer to void */
-  void (*comp2)(); /*comp2: pointer to function returning void */
-  char (*(*x1())[])(); /* x1: function returning pointer to array[] of pointer to function returning char */
+  printf("\ncomp1: function returning pointer to void\n");
+  printf("comp1() = %p\n", comp1());
+
+  printf("\ncomp2: pointer to function returning void\n");
+  void (*comp2)(); /* comp2: pointer to function returning void */
+  comp2 = &_comp2;
+  comp2 = _comp2; // same
+  printf("*comp2=%p\n", *comp2); // the address of a function
+  printf("(*comp2)()\n");
+  (*comp2)();
+  printf("comp2=%p\n", comp2); // magically the same address
+  printf("comp2()\n");
+  comp2();
+
+  printf("\nx1: function returning pointer to array[] of pointer to function returning char\n");
+  //my first attempt
+  printf("((*(x1()))[0])() = %c\n", ((*(x1()))[0])());// don't need to wrap the x1 because * is lower precedence than ()
+  // my second attempt
+  printf("((*x1())[0])() = %c\n", ((*x1())[0])());// I'm not resolving the pointer to function to a function here, sloppy
+  //my third attempt
+  printf("((*x1())[0])() = %c\n", (*(*x1())[0])());// ok so now resolving the function before caling.. same as the decl... happy days
+  printf("((*x1())[1])() = %c\n", (*(*x1())[1])());// ok so now resolving the function before caling.. same as the decl... happy days
+
+
+  
+  
+  
+  
   char (*(*x2[3])())[5]; /* x2: array[3] of pointer to function returning pointer to array[S] of char */
 }
