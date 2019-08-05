@@ -18,6 +18,7 @@ char pchar(int i);
 void playWithArrayPointers();
 void playWithFunctionPointers();
 void playWithComplexDeclarations();
+void playWithUnions();
 
 int main()
 {
@@ -32,6 +33,7 @@ int main()
   playWithArrayPointers();
   playWithFunctionPointers();
   playWithComplexDeclarations();
+  playWithUnions();
 }
 
 void printString(char aString[]){
@@ -186,7 +188,7 @@ char alsoReturnschar(){
 
 /* x: function returning pointer to array[] of pointer to function returning char */
 char (*(*x1())[])(){
-  char (*x[])() = {&returnschar, &alsoReturnschar};
+  static char (*x[])() = {&returnschar, &alsoReturnschar};
   return &x;
 }
 
@@ -235,11 +237,40 @@ void playWithComplexDeclarations(){
   //my third attempt
   printf("((*x1())[0])() = %c\n", (*(*x1())[0])());// ok so now resolving the function before caling.. same as the decl... happy days
   printf("((*x1())[1])() = %c\n", (*(*x1())[1])());// ok so now resolving the function before caling.. same as the decl... happy days
-
-
-  
-  
-  
   
   char (*(*x2[3])())[5]; /* x2: array[3] of pointer to function returning pointer to array[S] of char */
+}
+
+void playWithUnions(){
+  printf("\nUnions\n");
+  enum thingType {IS_INT, IS_FLOAT, IS_STRING};
+
+  union u_thing {
+    int ival;
+    float fval;
+    char *sval;
+  };
+
+  struct aThing {
+    int typeOfThing;
+    union u_thing actualThing;
+  } thing;
+
+  thing.typeOfThing = IS_INT;
+  thing.actualThing.ival = 42;
+
+  printf("typeOfThing=%d\n", thing.typeOfThing);
+  if(thing.typeOfThing == IS_INT){
+    printf("thing.actualThing.ival=%d\n", thing.actualThing.ival);
+  }
+
+  thing.typeOfThing = IS_STRING;
+  thing.actualThing.sval = "Now I'm a string!";
+
+  printf("typeOfThing=%d\n", thing.typeOfThing);
+  if(thing.typeOfThing == IS_STRING){
+    printf("thing.actualThing.sval=%s\n", thing.actualThing.sval);
+  }
+
+
 }

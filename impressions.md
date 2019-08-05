@@ -96,5 +96,37 @@ ddaytab[1][2]
 ```
 is just horrible and I *immediately* want to wrap it in a helper function, so why would I do it at all??
 
+## 5.12 Complicated Declarations
+ok, so the whole, 'lets mansplain the complex declaration thing with a complicated set of new words that don't help and a complicated parsing function that doesn't work all the time'.... thing... was a bit of a waste of time but the examples are excellent.  I ended up actually implementing some of these complicated declarations (coding the rhs) and this was infinitely more useful.
 
+In the end, what helped was taking a "once you have a" approach.. to explain.  If faced with this horrible abomination: -
+```
+char (*(*x2[3])())[5];
+```
+Imagine you have an x2 in your hand...
+The first thing you do is apply an array indexer to it ('[' has a higher precedence than *)... so this means x2 is an array of something
 
+Then you de-reference .... so x2 must be an array of pointers to something
+
+then you take you (bracket and) invoke like a function.. so x2 must be an array of pointers to a function
+
+then you de-reference the result of the function.. so x2 must be an array of pointers to a function that returns a pointer .. to something
+
+then you apply an array indexer.. so in the end, x2 must be an array[3] of pointer to function returning pointer to array[S] of char.
+
+This works in my brain and is alluded too in this quote
+```
+int *ip;
+```
+"
+is intended as a mnemonic;it says that the expression *ip is an int. The syntax of the declaration for a variable mimics the syntax of expressions in which the variable might appear.
+"
+
+# 6. Structures
+Structures make sense, even pointers to structures and the arrow syntax was ok.  the stuff on self referential structures was cool and I was stoked to implement hashmap and linked list finally.
+
+## 6.7 typedef
+trouble
+
+## 6.8 Unions
+more trouble... not sure what crazy circumstance makes this a good idea
