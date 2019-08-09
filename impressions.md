@@ -126,7 +126,9 @@ is intended as a mnemonic;it says that the expression *ip is an int. The syntax 
 Structures make sense, even pointers to structures and the arrow syntax was ok.  the stuff on self referential structures was cool and I was stoked to implement hashmap and linked list finally.
 
 ## 6.7 typedef
-trouble
+This seams like trouble brewing to me.  simple language, simple basic constructs close to the metal and nobody can get confused....Oh, and here, make up your own names for stuff! build a DSL, make everybody learn a new thing for each implementation.  Here is a typedef for String hooray.. except I want it to be STRING, whats the convention?
+
+I get that this is probably seemed like a good idea to start building up domain problems and to prevent everybody going bananas with complex declarations but I have only just figured out the basics and now without even seeing it, I know there is going to be a narrative of differing opinions and competing conventions that will be warring throughout the archealogical commit history.  This is exactly the type of bs I want to avoid. 
 
 ## 6.8 Unions
-more trouble... not sure what crazy circumstance makes this a good idea
+more trouble... not sure what crazy circumstance makes this a good idea.
